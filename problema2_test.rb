@@ -1,21 +1,6 @@
 require './problema2.rb'
 require 'rspec/autorun'
 
-# vowel string test
-test_1_param = "AEIOU aeiou áëíõü ÀÉÍOU"
-test_1_result = {"a"=> 4, "e"=> 4, "i"=> 4, "o"=> 4, "u"=> 4}
-
-# empty string test
-test_2_param = ""
-test_2_result = {"a"=> 0, "e"=> 0, "i"=> 0, "o"=> 0, "u"=> 0}
-
-# Consonant string text
-test_3_param = " bcd fgh jklmn pqrst vwxyz BCD FGH JKLMN PQRST VWXYZ"
-test_3_result = {"a"=> 0, "e"=> 0, "i"=> 0, "o"=> 0, "u"=> 0}
-
-# Special characters string text
-test_4_param = "!@#$%*$#)(*&¨%><:?/}"
-test_4_result = {"a"=> 0, "e"=> 0, "i"=> 0, "o"=> 0, "u"=> 0}
 
 
 
@@ -25,17 +10,25 @@ describe VowelCounter do
         @a = VowelCounter.new
     end
 
-    it "test with vowels string" do
-        expect(@a.count_vowels(test_1_param)).to eq(test_1_result)
+    it "test with some types of vowels" do
+        text_input = "AEIOU aeiou áëíõü ÀÉÍOU"
+        expected_output = {"a"=> 4, "e"=> 4, "i"=> 4, "o"=> 4, "u"=> 4}
+        expect(@a.count_vowels(text_input)).to eq(expected_output)
     end
     it "empty string test" do
-        expect(@a.count_vowels(test_2_param)).to eq(test_2_result)
+        text_input = ""
+        expected_output = {"a"=> 0, "e"=> 0, "i"=> 0, "o"=> 0, "u"=> 0}
+        expect(@a.count_vowels(text_input)).to eq(expected_output)
     end
     it "consonant string text" do
-        expect(@a.count_vowels(test_3_param)).to eq(test_3_result)
+        text_input = " bcd fgh jklmn pqrst vwxyz BCD FGH JKLMN PQRST VWXYZ"
+        expected_output = {"a"=> 0, "e"=> 0, "i"=> 0, "o"=> 0, "u"=> 0} 
+        expect(@a.count_vowels(text_input)).to eq(expected_output)
     end
     it "Special characters string text" do
-        expect(@a.count_vowels(test_4_param)).to eq(test_4_result)
+        text_input = "!@#$%*$#)(*&¨%><:?/}"
+        expected_output = {"a"=> 0, "e"=> 0, "i"=> 0, "o"=> 0, "u"=> 0}
+        expect(@a.count_vowels(text_input)).to eq(expected_output)
     end
     
     it "integer parameter" do
