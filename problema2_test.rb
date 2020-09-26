@@ -37,6 +37,7 @@ describe VowelCounter do
     it "Special characters string text" do
         expect(@a.count_vowels(test_4_param)).to eq(test_4_result)
     end
+    
     it "integer parameter" do
         expect{@a.count_vowels(2)}.to raise_error(ArgumentError)
     end
