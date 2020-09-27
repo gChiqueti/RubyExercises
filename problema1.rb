@@ -1,12 +1,12 @@
 class SeniorTest
-
+    # i chose not to use the constructor (initiliaze), but to create a method instead
     def rank_candidate(candidate_points)
         unless candidate_points.is_a? Array
-            raise ArgumentError, 'param is not a array'
+            raise ArgumentError, 'parameter is not an array'
         end
         score = calculate_score(candidate_points[0])
-        print_score(score)
-        return score
+        score_text = print_score(score)
+        return score_text
     end
 
     private
@@ -23,15 +23,13 @@ class SeniorTest
 
     def print_score(score)
         if score <= 7
-            puts 'Júnior - Pontuação ' + score.to_s
+            return 'Júnior - Pontuação ' + score.to_s
         elsif score <= 11
-            puts 'Pleno - Pontuação ' + score.to_s
+            return 'Pleno - Pontuação ' + score.to_s
         else
-            puts 'Senior - Pontuação ' + score.to_s
+            return 'Sênior - Pontuação ' + score.to_s
         end
     end
 end
-
-
 
 
